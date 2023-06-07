@@ -1,12 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Untuk mengakali cache github, biar langsung update setelah di push berkala -->
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Travel with TriTravel for the best experience you will never forget" />
+    <meta name="keywords" content="balikuy, travel agency, revou, fcse mini project" />
+
+    <title>BaliKuy</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"
+      integrity="sha512-24XP4a9KVoIinPFUbcnjIjAjtS59PUoxQj3GNVpWc86bCqPuy3YxAcxJrxFCxXe4GHtAumCbO2Ze2bddtuxaRw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav class="navbar">
+          <div class="logo">
+            <h1>
+              <a href="index.html">BaliKuy</a>
+            </h1>
+          </div>
+          <button class="menu-button" id="menu-button" onclick="toggleMenuButton()">
+            <i data-feather="menu"></i>
+          </button>
+          <ul class="navigation-list" id="menu-list">
+            <li><a href="#hero" onclick="setTitle(this)">Home</a></li>
+            <li><a href="#our-package" onclick="setTitle(this)">Destination</a></li>
+            <li><a href="#call-us" onclick="setTitle(this)">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="main-content">
+      <div class="hero" id="hero">
+        <div class="hero-slider" id="hero-slider">
+          <img id="slide1" src="assets/images/poto1.png" alt="" />
+          <img id="slide2" src="assets/images/poto2.png" alt="" />
+          <img id="slide3" src="assets/images/poto3.png" alt="" />
+          <img id="slide4" src="assets/images/poto4.png" alt="" />
+          <img id="slide5" src="assets/images/poto5.png" alt="" />
+          <img id="slide6" src="assets/images/poto6.png" alt="" />
+        </div>
+        <div class="hero-wrapper">
+          <h1 class="main-title">Your Trusted Travel Agent</h1>
+          <p class="hero-description">Your happiness is our happiness</p>
+          <button class="button" onclick="getStartButton()">Get started!</button>
+        </div>
+      </div>
+      <div class="container">
+        <div class="about-contact" id="about">
+          <div class="about">
+            <img src="assets/images/potosampul.png" alt="A beach in Bali during dusk, with some peoples playing" class="about-img" />
+            <p class="about-caption">Liburan jadi lebih menyenangkan karena BaliKuy memberikan yang terbaik pada customer</p>
+            <div class="about-author">
+              <img src="assets/images/poto.png" alt="" class="author-img" />
+              <div class="author-data">
+                <div class="author-name">Krisna Yoga</div>
+                <div class="author-info">Software Engineer, 22</div>
+              </div>
+            </div>
+            <hr class="border" />
+            <div class="feature">
+              <h2 class="subsection-title">Beberapa keuntungan yang Anda akan dapatkan dengan menggunakan jasa kami:</h2>
+              <div class="feature-list">
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i data-feather="star"></i>
+                  </div>
+                  <div class="feature-description">Tersedia perjalanan ke banyak tempat destinasi terbaik di dunia</div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i data-feather="star"></i>
+                  </div>
+                  <div class="feature-description">Pemesanan dan pembayaran yang mudah, cepat, dan dapat dilakukan kapan saja dan dimana saja</div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i data-feather="star"></i>
+                  </div>
+                  <div class="feature-description">Ada tawaran-tawaran menarik yang menanti untuk perjalanan Anda selanjutnya</div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i data-feather="star"></i>
+                  </div>
+                  <div class="feature-description">Uang kembali hingga 90% jika Anda batal melakukan perjalanan</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contact">
+            <h2 class="subsection-title">Contact Us</h2>
+            <p>Sales akan menghubungi Anda 1x24 jam setelah data anda kami terima</p>
+            <form class="contact-form" name="contact-form" onsubmit="return validateForm()">
+              <div class="form-field">
+                <label for="name" class="input-label">Your name:</label>
+                <input type="text" id="name" name="name" class="input-field" placeholder="First name and last name" oninput="fillInput('name')" />
+                <p class="error-msg" id="name-error">Please fill your name</p>
+              </div>
+              <div class="form-field">
+                <label for="email" class="input-label">Email Address:</label>
+                <input type="text" id="email" name="email" class="input-field" placeholder="example@email.com" oninput="fillInput('email')" />
+                <p class="error-msg" id="email-error">Please fill your email with a correct format</p>
+              </div>
+              <div class="form-field">
+                <label for="interest" class="input-label">What are you interested in?</label>
+                <select id="interest" name="interest" class="input-field" oninput="selectInterest()">
+                  <option value="none" selected disabled>Select option</option>
+                  <option value="option 1">Destinasi Pantai (Swimming/Surfing)</option>
+                  <option value="option 2">Destinasi Gunung (Hiking)</option>
+                  <option value="option 3">Destinasi Hutan (Camping/Fishing)</option>
+                </select>
+                <p class="error-msg" id="interest-error">Please select one interest</p>
+              </div>
+              <button type="submit" class="button">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="package" id="our-package">
+        <div class="package-banner">
+          <div class="container">
+            <h2 class="section-title">Destination</h2>
+          </div>
+        </div>
+        <div class="container">
+          <div class="package-list">
+            <div class="package-item">
+              <div class="package-icon">
+                <i data-feather="map-pin"></i>
+              </div>
+              <div class="package-content">
+                <h3>Jati luwih</h3>
+                <p>Jatiluwih adalah daerah di Bali yang terkenal dengan sawah terasering yang indah. Tempat ini menawarkan pemandangan alam yang menakjubkan dan merupakan situs Warisan Dunia UNESCO.</p>
+              </div>
+            </div>
+            <div class="package-item">
+              <div class="package-icon">
+                <i data-feather="map-pin"></i>
+              </div>
+              <div class="package-content">
+                <h3>Tanah Lot</h3>
+                <p>Tanah Lot adalah sebuah pura laut yang terletak di pesisir barat daya Bali. Pura ini terkenal karena posisinya yang berada di atas batu karang dan menawarkan pemandangan matahari terbenam yang spektakuler.</p>
+              </div>
+            </div>
+            <div class="package-item">
+              <div class="package-icon">
+                <i data-feather="map-pin"></i>
+              </div>
+              <div class="package-content">
+                <h3>Kintamani</h3>
+                <p>
+                  Kintamani adalah daerah pegunungan di Bali yang terkenal dengan pemandangan Danau Batur dan Gunung Batur yang megah. Tempat ini sering dikunjungi untuk menikmati pemandangan danau, gunung, serta keindahan alam sekitarnya.
+                </p>
+              </div>
+            </div>
+          </div>
+          <hr class="border" />
+          <div class="package-list">
+            <div class="package-item">
+              <div class="package-icon">
+                <i data-feather="map-pin"></i>
+              </div>
+              <div class="package-content">
+                <h3>Broken beach</h3>
+                <p>
+                  Broken Beach (atau Pasih Uug) adalah formasi alam di Nusa Penida, sebuah pulau di sebelah tenggara Bali. Tempat ini terkenal dengan tebing yang melingkar dan membentuk "pantai terputus" dengan pemandangan yang spektakuler.
+                </p>
+              </div>
+            </div>
+            <div class="package-item">
+              <div class="package-icon">
+                <i data-feather="map-pin"></i>
+              </div>
+              <div class="package-content">
+                <h3>Nusa Dua</h3>
+                <p>
+                  Nusa Dua adalah daerah resor yang terletak di semenanjung selatan Bali. Tempat ini terkenal dengan pantai-pantai yang indah, resor mewah, dan fasilitas wisata yang lengkap seperti lapangan golf, pusat perbelanjaan, dan
+                  restoran.
+                </p>
+              </div>
+            </div>
+            <div class="package-item">
+              <div class="package-icon">
+                <i data-feather="map-pin"></i>
+              </div>
+              <div class="package-content">
+                <h3>Ubud</h3>
+                <p>
+                  Ubud adalah kawasan budaya dan seni di Bali yang terkenal dengan keindahan alamnya serta kehidupan seni dan spiritual yang kaya. Tempat ini menawarkan galeri seni, pertunjukan tari tradisional, tempat yoga, pasar seni,
+                  serta kebun dan sawah yang indah.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cta" id="call-us">
+        <div class="container">
+          <h2 class="section-title">Talk with Us</h2>
+          <p>Ingin memesan perjalanan? Ada kendala yang perlu dibantu? Silakan hubungi kami dengan menekan tombol di bawah ini</p>
+          <button class="button">Hubungi Kami</button>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="logo">
+          <img src="assets/logo.png" alt="tritravel logo" width="192" />
+        </div>
+        <ul class="footer-navigation">
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+        <div>© 2023 KrisnaYoga</div>
+      </div>
+    </footer>
+
+    <script>
+      feather.replace();
+    </script>
+    <script src="js/validation.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/slideShow.js"></script>
+  </body>
 </html>
